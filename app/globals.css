@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Fashion-forward coral/pink theme */
+  --color-bg: #fef5f5;
+  --color-fg: #2d1b1b;
+  --color-accent: #ff6b9d;
+  --color-accent-secondary: #ff8fab;
+  --color-muted: #f8e8eb;
+  --color-border: #ffd4e0;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #ef4444;
+}
+
+[data-theme="celo"] {
+  --color-bg: #000000;
+  --color-fg: #ffffff;
+  --color-accent: #fbcc5c;
+  --color-accent-secondary: #ffd978;
+  --color-muted: #1a1a1a;
+  --color-border: #333333;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #ef4444;
+}
+
+[data-theme="solana"] {
+  --color-bg: #1a0b2e;
+  --color-fg: #ffffff;
+  --color-accent: #9945ff;
+  --color-accent-secondary: #14f195;
+  --color-muted: #2d1b4e;
+  --color-border: #4a2f7a;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #ef4444;
+}
+
+[data-theme="base"] {
+  --color-bg: #0a0f1e;
+  --color-fg: #e8eaed;
+  --color-accent: #0052ff;
+  --color-accent-secondary: #3374ff;
+  --color-muted: #1a2332;
+  --color-border: #2d3748;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #ef4444;
+}
+
+[data-theme="coinbase"] {
+  --color-bg: #0a0f1e;
+  --color-fg: #e8eaed;
+  --color-accent: #0052ff;
+  --color-accent-secondary: #1652f0;
+  --color-muted: #1a2332;
+  --color-border: #2d3748;
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #ef4444;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-border;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent to-accent-secondary text-white px-6 py-3 rounded-fashion font-medium hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-muted text-fg px-6 py-3 rounded-fashion font-medium hover:bg-opacity-80 transition-all duration-200;
+  }
+
+  .outfit-card {
+    @apply glass-card p-4 rounded-fashion hover:shadow-xl transition-all duration-200;
+  }
+
+  .wardrobe-item {
+    @apply glass-card p-2 rounded-lg hover:scale-105 transition-all duration-200 cursor-pointer;
+  }
+
+  .score-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .score-high {
+    @apply bg-success/20 text-success border border-success/30;
+  }
+
+  .score-medium {
+    @apply bg-warning/20 text-warning border border-warning/30;
+  }
+
+  .score-low {
+    @apply bg-error/20 text-error border border-error/30;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-accent-secondary bg-clip-text text-transparent;
+  }
+}
